@@ -24,6 +24,22 @@ These are the minimal requirements to run a Lotus node. [Hardware requirements f
 
 The following instructions are specific to Linux installations. Head to the [macOS](#macos) section if you want to install Lotus on a Mac.
 
+### Super mega quick start
+
+Run these commands to get a vanilla Ubuntu machine up and running quickly:
+
+```shell
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y && sudo apt upgrade -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+wget -c https://golang.org/dl/go1.16.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc && ~/.bashrc
+git clone https://github.com/filecoin-project/lotus.git
+cd lotus/
+make clean all
+sudo make install
+```
+
 ### Software dependencies
 
 You will need the following software installed to install and run Lotus.
